@@ -51,17 +51,16 @@
   <ItemGroup>
     <Compile Include="Common\Guitar.cs" />
     <Compile Include="Common\Inventory.cs" />
+    <Compile Include="DataAccess\NHibernateBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mapping\Guitar.hbm.xml" />
-    <Content Include="Mapping\Inventory.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Guitar.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Inventory.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
