@@ -53,5 +53,24 @@ namespace NHibernate.GuitarStore.DataAccess
                 return _statelessSession;
             }
         }
+
+        public IList<T>  ExecuteCriteria<T>()
+        {
+            using (ITransaction transaction = Session.BeginTransaction())
+            {
+                try
+                {
+                    IList<T> result = Session.CreateCriteria(typeof(T)).List<T>();
+                    transaction.Commit();
+
+                    return result;
+                }
+                catch(Exception ex)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
     }
 }
