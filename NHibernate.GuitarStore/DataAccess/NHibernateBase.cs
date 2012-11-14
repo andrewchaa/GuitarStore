@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NHibernate.Cfg;
+using System.Configuration;
+using Configuration = NHibernate.Cfg.Configuration;
 
 namespace NHibernate.GuitarStore.DataAccess
 {
@@ -13,6 +12,12 @@ namespace NHibernate.GuitarStore.DataAccess
         private static Configuration Configuration { get; set; }
         private static ISession _session = null;
         private static IStatelessSession _statelessSession = null;
+        private static string SerialisedConfiguratin = ConfigurationManager.AppSettings["SerialisedFilename"];
+
+        public NHibernateBase()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+        }
 
         public static Configuration ConfigureNHibernate(string assembly)
         {
@@ -72,5 +77,6 @@ namespace NHibernate.GuitarStore.DataAccess
                 }
             }
         }
+
     }
 }

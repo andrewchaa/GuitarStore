@@ -6,6 +6,8 @@
         Background="Black" Icon="Images/Guitar.ico"
         ResizeMode="NoResize" Loaded="WindowLoaded">
     <Grid>
+        <ComboBox Height="23" SelectionChanged="GuitarTypeSelectionChanged" HorizontalAlignment="Left" Margin="12,31,0,0" Name="cboBoxGuitarTypes"
+                  VerticalAlignment="Top" Width="195" />
         <DataGrid AutoGenerateColumns="True" HorizontalAlignment="Stretch" Margin="12,59,110,52" Name="dataGridInventory" VerticalAlignment="Stretch" />
     </Grid>
 </Window>
